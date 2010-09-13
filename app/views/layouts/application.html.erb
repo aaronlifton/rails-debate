@@ -1,0 +1,16 @@
+<%= render "shared/head" %>
+<body>
+    <%= render "shared/header" %>
+    <%= render "shared/intro" %>
+	<div class="container">        
+        <div class="span-16 colborder round" id="content">
+            <%= yield %>
+        </div>
+        
+        <div class="span-6 last" id="right">
+            <%= yield :right %>
+        </div>
+    </div>
+
+</body>
+</html>

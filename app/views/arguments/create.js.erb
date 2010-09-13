@@ -1,0 +1,21 @@
+<% if @argument.errors.any? %>
+	<% errors_id = @argument.parent.nil? ? "new_argument_errors" : "argument_#{@argument.parent.id}_reply_errors" %>
+	<% errors = raw("<ul class='errors'>" + escape_javascript(@argument.errors.full_messages.map {|m|
+				"<li>#{m}</li>"}.join()) + "</ul>") %>
+	var errors = $("#<%= errors_id %>");
+	errors.html("<%= errors %>");
+	errors.show(300);
+<% else %>
+	<% if @argument.parent.nil? %>
+		$("#side_<%= @argument.side.id %> .arguments").prepend("<%= escape_javascript(render_thread(@argument)) %>");
+	<% else %>
+		cancelReply(<%= @argument.parent.id %>);
+		var children = $("#argument_<%= @argument.parent.id %>_children");
+		if (!children.length) {
+			$("#argument_<%= @argument.parent.id %>").after('<ul id="argument_<%= @argument.parent.id %>_children" class="arguments"></ul>');
+			children = $("#argument_<%= @argument.parent.id %>_children");
+		}
+		children.prepend("<%= escape_javascript(render_thread(@argument)) %>");
+	<% end %>
+	$("#argument_<%= @argument.id %>").effect("highlight", {}, 3000);
+<% end %>

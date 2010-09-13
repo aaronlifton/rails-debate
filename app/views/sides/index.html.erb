@@ -1,0 +1,27 @@
+<h1>Listing sides</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Debate</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @sides.each do |side| %>
+  <tr>
+    <td><%= side.name %></td>
+    <td><%= side.description %></td>
+    <td><%= side.debate_id %></td>
+    <td><%= link_to 'Show', side %></td>
+    <td><%= link_to 'Edit', edit_side_path(side) %></td>
+    <td><%= link_to 'Destroy', side, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Side', new_side_path %>

@@ -1,0 +1,6 @@
+<h1>Reply</h1>
+<%= render_thread(@parent, { :show_children => false, :allow_reply => false }) %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', debate_path(@parent.debate) %>

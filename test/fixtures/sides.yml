@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: Yes
+  description: MyText
+  debate_id: 1
+
+two:
+  name: No
+  description: MyText
+  debate_id: 1
+  
+three:
+  name: Maybe
+  description: MyText
+  debate_id: 1
+
+four:
+  name: Sure
+  description: MyText
+  debate_id: 1

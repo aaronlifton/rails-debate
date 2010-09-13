@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @side.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @side.description %>
+</p>
+
+<p>
+  <b>Debate:</b>
+  <%= @side.debate_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_side_path(@side) %> |
+<%= link_to 'Back', sides_path %>

@@ -1,0 +1,11 @@
+<%= render :partial => "top", :locals => {:user => @user} %>
+
+<% if @arguments.size > 0 %>
+	<ul class="arguments full_list">
+		<%= render_threads(@arguments, {:show_children => false, :allow_reply => false}) %>
+	</ul>
+<% else %>
+	<div class="notification">No arguments for this user yet.</div>
+<% end %>
+
+<%= render :partial => "bottom", :locals => {:user => @user} %>

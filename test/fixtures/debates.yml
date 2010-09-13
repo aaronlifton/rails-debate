@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: What is the greatest food ever?
+  description: Lorem ipsum dolor.
+  user_id: 1
+
+two:
+  name: Is this the greatest site ever?
+  description: Lorem ipsum dolor.
+  user_id: 1

@@ -1,0 +1,12 @@
+<h1>Listing arguments</h1>
+
+<% if @arguments.size > 0 %>
+<ul class="arguments full_list">
+	<%= render_threads(@arguments, {:show_children => false, :allow_reply => false}) %>
+</ul>
+<% else %>
+	<div class="notification">No arguments yet.</div>
+<% end %>
+<div class="options round_bottom">
+	<%= link_to 'New argument', new_argument_path %>
+</div>

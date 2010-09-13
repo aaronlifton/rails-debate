@@ -1,0 +1,22 @@
+<table id="arguments">
+    <tr>
+        <% sides.each do |side| %>
+            <th>
+                <h1><%= side.name %></h1>
+            </th>
+        <% end %>
+    </tr>
+    <tr>
+        <% sides.each do |side| %>
+            <td id="side_<%= side.id %>">
+                <% if side.parent_arguments.size > 0 %>
+                    <ul class="arguments">
+                        <%= render_threads(side.parent_arguments) %>
+                    </ul>
+                <% else %>
+                    <div class="notification">No arguments for this side yet.</div>
+                <% end %>
+            </td>
+        <% end %>
+    </tr>
+</table>

@@ -1,0 +1,61 @@
+<% unless @parent.nil? %>
+<script type="text/javascript">
+$("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
+	toggleLoading($(this).attr("id"));
+}).bind("ajax:complete", function() {
+	toggleLoading($(this).attr("id"));
+});
+</script>
+<% end %>
+<% form_id = @parent.nil? ? "new_argument" : "argument_#{@parent.id}_reply" %>
+<%= form_for(@argument, :remote => true, :html => {:id => form_id, :class => "new_argument"}) do |f| %>
+  <% unless @parent.nil? %>
+    <div id="argument_<%= @parent.id %>_reply_errors"></div>
+  <% end %>
+  <% if @argument.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@argument.errors.count, "error") %> prohibited this argument from being saved:</h2>
+      <ul>
+      <% @argument.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+    <table>
+      <tr>
+        <td>
+          <div class="field sides">
+            <% @debate.sides.each do |side| %>
+                <div class="side" onclick="select_side($(this))">
+                    <%= f.radio_button :side_id, side.id %>
+                    <%= label_tag "argument_side_id_#{side.id}", side.name %>
+                </div>
+            <% end %>
+          </div>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.text_area :body %>
+          </div>
+        </td>
+		<% if @parent.nil? %>
+		<td>
+		  	<div id="new_argument_errors"></div>
+		</td>
+		<% end %>
+      </tr>
+  </table>
+  <%= f.hidden_field :user_id %>
+  <%= f.hidden_field :parent_id %>
+  <%= hidden_field_tag "debate_id", @debate.id %>
+  <div class="actions">
+    <%= f.submit %>
+	<% unless @parent.nil? %>
+		<span id="argument_<%= @parent.id %>_reply_loading" style="display:none;">Loading...</span>
+		<%= link_to_function "cancel", "cancelReply(#{@parent.id})" %>
+	<% else %>
+		<span id="new_argument_loading" style="display:none;">Loading...</span>
+	<% end %>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Body:</b>
+  <%= @argument.body %>
+</p>
+
+<p>
+  <b>Side:</b>
+  <%= @argument.side_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @argument.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_argument_path(@argument) %> |
+<%= link_to 'Back', arguments_path %>

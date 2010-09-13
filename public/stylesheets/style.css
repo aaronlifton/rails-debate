@@ -1,0 +1,148 @@
+@charset "utf-8";
+
+body {
+    background:#54C8E3;
+    font-family:"Helvetica Neue","Lucida Grande",Helvetica,Arial,sans-serif;
+    font-size:15px;
+    line-height:22px;
+    color:#575757;
+}
+
+a {
+	color:#0044CC;
+	text-decoration:none;
+}
+
+h3 {
+	font-family:HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size:24px;
+}
+
+.button {border:none !important;}
+
+/* LOGO */
+#logo {
+    background:#333;
+    color:#eee;
+}
+#logo h1 {float:left;line-height:1.25em;margin:0;font-weight:bold;}
+#logo h1 a {color:#eee;}
+
+/* INTRO */
+#intro {background:#2B8AA3;color:#fff;border-bottom:2px solid #17748D;margin-bottom:0.75em;}
+#intro h2 {
+	font-family:HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	color:#fff;
+	margin:0;
+	padding:0.5em 0;
+}
+
+    /* FLASH */
+    #flash {margin:0.5 0;margin-left:4px;}
+	.flash {padding:0.5em;margin-bottom:0.5em;}
+    #flash_notice {background:#E2F9E3;border:1px solid #9C9;color:#060;}
+    #flash_success {background:#E2F9E3;border:1px solid #9C9;color:#060;}
+    #flash_failure {color:#B60040;background:#ffc7c7;border:1px solid #ff6161;}
+    
+    /* USER NAV */
+    #user_nav {margin-top:0.5em;float:right;padding:0.5em;margin-right:5px;}
+	#user_nav a {color:#eee;text-decoration:underline;}
+
+/* HELPERS */
+.center {width:960px;margin:auto;}
+form {margin-left:1em;}
+.round {-moz-border-radius:0.5em;-webkit-border-radius:0.5em;border-radius:0.5em;}
+.round_bottom {-moz-border-radius-bottomleft:0.5em;-moz-border-radius-bottomright:0.5em;-webkit-border-radius-bottomleft:0.5em;-webkit-border-radius-bottomright:0.5em;border-bottom-left-radius:0.5em;border-bottom-right-radius:0.5em;}
+.full_list {margin:0 1em !important;}
+
+/* ARGUMENTS */
+#arguments th {text-align:center;}
+#arguments tr td {width:50%;min-width:50%;max-width:50%;vertical-align:top;}
+#arguments .notification {margin-right:1.5em;}
+
+/* LEFT SIDEBAR */
+#left {color:#fff;}
+#debate_about {background:#2B8AA3;padding:0.5em;}
+#debate_about .explained {padding:0;margin:0;}
+.explained {font-size:18px;line-height:24px;padding:0 0 0.5em 0;}
+
+/* RIGHT SIDEBAR */
+#what_is_debatezone {background:#DDF1A6;color:#4F830A;padding:0.5em;}
+#what_is_debatezone h3 {color:#333;font-size:18px;font-weight:bold;margin-bottom:0.5em;}
+
+/* CONTENT */
+#content {background:#fff;}
+#content form {margin-bottom:1em;}
+
+#content h1, #content h2, #content h3 {margin:0.5em;color:#575757;}
+
+#content h1 {font-size:2em;font-weight:bold;}
+#content p {margin-left:1em;}
+
+#content a {color:#EC5445;border-bottom:1px solid #eee;}
+#content a:hover {color:#000;}
+
+.options {background:#E4E4E4;color:#555;padding:0.5em 1em;}
+.options a {color:#555 !important;border-color:#ccc !important;}
+
+/* DEBATE */
+#debates {list-style-type:none;margin:0;padding:0;}
+#debates li {margin:0;}
+#debates li h4 {margin:0;font-weight:bold;}
+#debates li h4 a {display:block;padding:0.5em;background:#eee;border-bottom:1px solid #ddd;}
+#debates li h4 a:hover {background:#ddd;border-color:#ccc;}
+
+.meta {margin:0 1em;font-size:13px;}
+
+#new_debate h3 {margin-left:0;}
+#new_debate #sides {margin:1em 0;}
+
+#user_sides {list-style-type:none;margin:0;padding:0;}
+#user_sides .side {}
+
+.sides {list-style-type:none;background:#E9FBFF;padding:0.5em;margin:1em;color:#555;}
+.sides h2 {font-size:1.5em;margin-bottom:0.5em;}
+.sides .side {background:#CBF3FB;padding:0.5em;}
+.sides .side {margin:0.5em;display:inline-block;}
+.sides .side h3 {font-size:18px;font-weight:bold;}
+
+#argue {background:#E4E4E4;padding:0.5em;margin:1em;color:#555;}
+#argue h2 {font-size:1.5em;margin-bottom:0.5em;}
+#argue #new_argument {margin:0.5em;}
+
+.new_argument {background:#E4E4E4;color:#555;}
+.new_argument table tr td {vertical-align:top;}
+.new_argument .side {margin:0.5em 0;border:2px solid #E9FBFF;cursor:pointer;}
+.new_argument .side label {padding:0.5em;cursor:pointer;}
+.new_argument .side.selected {background:#E9FBFF;border-color:#CBF3FB;}
+
+/* ARGUMENTS */
+#arguments {margin:1em;}
+
+.arguments {list-style-type:none;margin:0;padding:0;}
+.arguments .argument {margin:1em 0;}
+.arguments .arguments {margin-left:1em;}
+
+#new_argument textarea {height:150px;}
+#new_argument .errors {margin:6px 0 0 0;}
+
+.argument .info {background:#eee;border-bottom:#ddd;padding:0.5em;margin-bottom:0.5em;font-size:13px;}
+.argument p {margin:0 0 0.5em 0 !important;}
+.argument .meta {color:#777;font-size:13px;margin:-0.5em 0 0 0;}
+.argument .meta a {border:none !important;}
+
+/* FORM & ERRORS */
+#error_explanation {color:#B60040;}
+#error_explanation h2 {font-size:1.5em;margin:0.5em 0;background:#eee;padding:0.5em 0.5em 0.5em .7em;margin-left:-0.7em;}
+#error_explanation ul, .errors {background:#ffc7c7;border:1px solid #ff6161;padding:0.5em 2em;margin:1em 1em 1em 0;}
+
+.field_with_errors {display:inline;}
+.field_with_errors label {color:#B60040;}
+.field_with_errors input, .field_with_errors textarea {background:#FFE9E9;}
+
+.notification {background:#FFF8E7;padding:1em;margin:1em;vertical-align:middle;}
+.notification .message {float:left;margin-top:0.5em;}
+.notification .button {float:right;}
+.notification .spacer {padding:0.5em;float:right;}
+
+/* USERS */

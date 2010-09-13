@@ -1,0 +1,14 @@
+<div class="field">
+	<% if f.object.errors.any? %>
+		<div id="error_explanation">
+			<ul>
+			<% f.object.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul?>
+		</div>
+	<% end %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= link_to_remove_fields "remove", f %>
+</div>

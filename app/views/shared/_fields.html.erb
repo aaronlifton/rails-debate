@@ -1,0 +1,20 @@
+<% fields.each do |name, field| %>
+  <tr class="field">
+    <td>
+        <%= f.label "#{name}" %> <%= field[:hint] unless field[:hint].nil? %><br />
+        <%= eval "f.#{field[:type]} :#{name}" %>
+        <% if field[:destroy] == true %>
+            <%= link_to_remove_fields "remove", f %>
+        <% end %>
+    </td>
+    <td>
+        <% if f.object.errors["#{name}"].any? %>
+            <ul>
+                <% f.object.errors["#{name}"].each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        <% end %>
+    </td>
+  </tr>
+<% end %>

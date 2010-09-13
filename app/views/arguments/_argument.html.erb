@@ -1,0 +1,18 @@
+<% content_tag_for(:li, argument) do %>
+    <div class="info"><a href="#">flubba</a> &#183; <%= time_ago_in_words(argument.created_at) %> ago</div>
+    <p><%= argument.body %></p>
+    <div class="meta">
+        posted for <%= argument.side.name %>
+        <% if allow_reply %>
+			&#183; <%= link_to "Reply", reply_argument_path(argument), :remote => true, :id => "reply_#{argument.id}_link", :class => "reply_link" %>
+			<span id="reply_<%= argument.id %>_link_loading" style="display:none;">Loading...</span>
+			<div id="reply_<%= argument.id %>" class="reply"></div>
+		<% end %>
+    </div>
+<% end %>
+
+<% if show_children && argument.children.size > 0 %>
+<ul id="argument_<%= argument.id %>_children" class="arguments">
+    <%= render_threads(argument.children) %>
+</ul>
+<% end %>

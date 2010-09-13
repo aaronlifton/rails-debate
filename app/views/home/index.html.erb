@@ -1,0 +1,28 @@
+<% content_for :left do %>
+    <div id="debate_about" class="explained round">
+		Pop culture. Disputes with friends. Politics. Sports. Music. Debate it all on DebateZone.
+	</div>
+<% end %>
+
+<% content_for :right do %>
+    <div id="what_is_debatezone" class="explained round">
+        <h3>New to DebateZone?</h3>    
+        DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
+    </div>
+<% end %>
+
+<h3>Top Debates</h3>
+<% if @debates.size > 0 %>
+    <ul id="debates">
+        <% @debates.each do |debate| %>
+            <li>
+                <h4><%= link_to debate.name, debate_path(debate) %></h4>
+            </li>
+        <% end %>
+    </ul>
+    <div class="options round_bottom">
+        <%= link_to "View all debates", debates_path %>
+    </div>
+<% else %>
+    <p>No debates yet.</p>
+<% end %>

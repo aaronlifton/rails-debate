@@ -1,0 +1,16 @@
+<h1>Debates</h1>
+<% if @debates.size > 0 %>
+    <ul id="debates">
+        <% @debates.each do |debate| %>
+            <li>
+                <h4><%= link_to debate.name, debate_path(debate) %></h4>
+            </li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>No debates yet.</p>
+<% end %>
+
+<div class="options round_bottom">
+	<%= link_to 'New Debate', new_debate_path %>
+</div>

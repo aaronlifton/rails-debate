@@ -1,0 +1,3 @@
+<% form = escape_javascript(render :partial => "arguments/form",
+								   :locals => { :argument => @argument, :parent => @parent, :debate => @debate }) %>
+$("#reply_<%= @parent.id %>").html("<%= form %>");

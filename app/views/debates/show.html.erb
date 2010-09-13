@@ -1,0 +1,67 @@
+<% content_for :extra_head do %>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".new_argument").bind("ajax:loading", function() {
+		toggleLoading($(this).attr("id"));
+	}).bind("ajax:complete", function() {
+		toggleLoading($(this).attr("id"));
+	});
+	$(".reply_link").bind("ajax:loading", function() {
+		toggleLoading($(this).attr("id"));
+	}).bind("ajax:complete", function() {
+		toggleLoading($(this).attr("id"));
+	});
+});
+</script>
+<% end %>
+
+<h1><%= @debate.name %></h1>
+<p><%= @debate.description %></p>
+<div class="meta">
+	created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
+</div>
+
+<div class="options">
+    <%= link_to 'Edit', edit_debate_path(@debate) %> |
+    <%= link_to 'Back', debates_path %>
+</div>
+
+<ul id="sides" class="sides">
+    <h2>Sides</h2>
+    <% @debate.sides.each do |side| %>
+        <li class="side">
+            <h3><%= side.name %></h3>
+        </li>
+    <% end %>
+</ul>
+
+<% if current_user.nil? %>
+	<div class="notification">
+		<div class="message">
+			You must be signed in to argue.
+		</div>
+		<%= link_to image_tag("sign_up.png"), sign_up_path, :class => "button" %>
+		<div class="spacer"></div>
+		<%= link_to image_tag("sign_in.png"), sign_in_path, :class => "button" %>
+		<div class="clear"></div>
+	</div>
+<% else %>
+	<div id="argue">
+   		<h2>New Argument</h2>
+	    <%= render :partial => "arguments/form", :locals => { :argument => @argument, :debate => @debate } %>
+	</div>
+<% end %>
+
+<h2>Arguments</h2>
+
+<% if @debate.sides.size > 2 %>
+    <% if @debate.arguments.size > 0 %>
+        <ul class="arguments">
+            <%= render_threads(@debate.parent_arguments) %>
+        </ul>
+    <% else %>
+        <div class="notification">No arguments for this debate yet.</div>
+    <% end %>
+<% else %>
+    <%= render :partial => "two_side_arguments", :locals => { :sides => @debate.sides } %>
+<% end %>

@@ -1,0 +1,30 @@
+<%= form_for(model) do |f| %>
+  <% if model.errors[:base].any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(model.errors.count, "error") %> prohibited this <%= model.class.name.downcase %> from being saved:</h2>
+      <% model.errors[:base].each do |msg| %>
+        <div class="error"><%= msg %></div>
+      <% end %>
+    </div>
+  <% end %>
+  
+  <table>
+    <%= render :partial => "shared/fields", :locals => { :f => f, :model => model, :fields => fields } %>
+  </table>
+  
+  <% if nested %>
+    <table>
+    <% nested.each do |nested_model| %>
+      <h3><%= nested_model.to_s.singularize %></h3>
+      <%= f.fields_for nested_model.to_s.downcase.to_sym do |nested_form| %>
+        <%= render :partial => "shared/fields", :locals => { :f => nested_form, :model => model, :fields => nested_model.fields } %>
+      <% end %>
+      <%= link_to_add_fields "Add #{nested_model.name.to_s}", f, nested_model.to_s.downcase.to_sym, nested_model.fields %>
+    <% end %>
+    </table>
+  <% end %>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

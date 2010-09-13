@@ -1,0 +1,19 @@
+<%= render "shared/head" %>
+<body>
+    <%= render "shared/header" %>
+    <%= render "shared/intro" %>    
+	<div class="container">  
+        <div class="span-6" id="left">
+            <%= yield :left %>
+        </div>
+        
+        <div class="span-12 round" id="content">
+            <%= yield %>
+        </div>
+        
+        <div class="span-6 last" id="right">
+            <%= yield :right %>
+        </div>
+    </div>
+</body>
+</html>

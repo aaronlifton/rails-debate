@@ -1,0 +1,22 @@
+<h1>New debate</h1>
+
+<%  #fields = ActiveSupport::OrderedHash.new
+    #fields['name'] = { :type => 'text_field' }
+    #fields['description'] = { :type => 'text_area', :hint => link_to('Markdown','http://daringfireball.net/projects/markdown/syntax') }
+    #render :partial => 'shared/form',
+    #:locals => { :model => @debate,
+    #             :fields => fields,
+    #             :nested_models => { :side => { :title => 'Sides',
+    #                                            :fields => { :name => { :type => 'text_field', :destroy => true } }
+    #                                          }
+    #                               }
+    #           }
+%>
+
+<% #uberform(:model => @debate, :nested => :sides) %>
+
+<%= render "form" %>
+
+<div class="options round_bottom">
+	<%= link_to 'Back', debates_path %>
+</div>

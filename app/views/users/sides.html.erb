@@ -1,0 +1,13 @@
+<%= render :partial => "top", :locals => {:user => @user} %>
+
+<% if @sides.size > 0 %>
+	<ul class="user_sides full_list">
+		<% @sides.each do |side| %>
+			<li class="side"><%= side.name %></li>
+		<% end %>
+	</ul>
+<% else %>
+	<div class="notification">No sides for this user yet.</div>
+<% end %>
+
+<%= render :partial => "bottom", :locals => {:user => @user} %>

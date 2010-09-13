@@ -1,0 +1,42 @@
+<%= form_for(@debate) do |f| %>
+    <% if @debate.errors[:name].any? %>
+        <div id="error_explanation">
+            <h2>Your debate had a few problems</h2>
+            <ul>
+            <% @debate.errors[:name].each do |msg| %>
+                <li>Name <%= msg %></li>
+            <% end %>
+            </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name %>
+    </div>
+    <div class="field">
+        <%= f.label :description %> (Formatting: <a href="http://daringfireball.net/projects/markdown/basics">Markdown</a>)<br />
+        <%= f.text_area :description %>
+    </div>
+    
+    <h3>Sides</h3>
+    <div id="sides">
+        <% if @debate.errors[:sides].any? %>
+            <div id="error_explanation">
+                <ul>
+                <% @debate.errors[:sides].each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+                </ul>
+            </div>
+        <% end %>
+        <%= f.fields_for :sides, @debate.sides do |builder| %>
+            <%= render 'side_fields', :f => builder %>
+        <% end %>
+        <%= link_to_add_fields "Add side", f, :sides %>
+    </div>
+    
+    <div class="actions">
+        <%= f.submit %>
+    </div>
+<% end %>
