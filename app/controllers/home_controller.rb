@@ -3,7 +3,8 @@ class HomeController < ApplicationController
   layout 'three_col'
 
   def index
-    respond_with(@debates = Debate.hot[0..4])
+    #respond_with(@debates = Debate.hot[0..4])
+    respond_with(@debates = Debate.hot)
   end
 
 end
