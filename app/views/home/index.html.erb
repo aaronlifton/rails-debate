@@ -20,10 +20,10 @@
             </li>
         <% end %>
     </ul>
-    <div class="options round_bottom">
-        <%= link_to "View all debates", debates_path %>
-        | <%= link_to 'New Debate', new_debate_path %>
-    </div>
 <% else %>
     <p>No debates yet.</p>
 <% end %>
+<div class="options round_bottom">
+	<%= link_to "View all debates", debates_path %>
+	| <%= link_to 'New Debate', new_debate_path %>
+</div>
