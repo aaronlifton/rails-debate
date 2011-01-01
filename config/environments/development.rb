@@ -15,15 +15,5 @@ Debatezone4::Application.configure do
   config.action_controller.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
-
-  ActionMailer::Base.smtp_settings = { 
-	  :address => "smtp.gmail.com", 
-	  :port => 587,
-	  :domain => "localhost.localdomain",
-	  :authentication => :plain, 
-	  :enable_starttls_auto => true, 
-	  :user_name => "theflubba@gmail.com", 
-	  :password => "dudewhatthefuck" 
-  } 
   config.action_mailer.raise_delivery_errors = true
 end
