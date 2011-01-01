@@ -1,4 +1,7 @@
 class Side < ActiveRecord::Base
+  	cattr_reader :per_page
+  	@@per_page = 2
+  	
     validates :name, :presence => true,
                      :length => { :minimum => 2, :unless => Proc.new { |s| s.name.blank? } }
                      

@@ -2,36 +2,45 @@ class UsersController < Clearance::UsersController
   respond_to :html
   
   def index
-    respond_with(@users = User.all)
+    respond_with(@users = User.all.sort_by {|u| u.points})
   end
 
   def show
     @user = User.find_by_name(params[:id])
-    @arguments = @user.arguments
+   	@arguments = Argument.paginate :page => params[:page], :order => 'created_at DESC',
+   		:conditions => { :user_id => @user.id }
+    #@arguments = @user.arguments
     respond_with(@user)
   end
   
   def arguments
     @user = User.find_by_name(params[:id])
-    @arguments = @user.arguments
+   	@arguments = Argument.paginate :page => params[:page], :order => 'created_at DESC',
+   		:conditions => { :user_id => @user.id }
     render :action => "show"
   end
   
-  def sides
+  def sides	
     @user = User.find_by_name(params[:id])
     @sides = @user.sides
+	@sides = @sides.paginate :page => params[:page], :order => 'created_at DESC'
+
     respond_with(@user)
   end
   
   def debates
     @user = User.find_by_name(params[:id])
-    @debates = @user.debates
+    @debates = @user.debates.paginate :page => params[:page], :order => 'created_at DESC'
     respond_with(@user)
   end
 
   def edit
     @user = User.find_by_name(params[:id])
-    respond_with(@user)
+    if @user == current_user
+    	respond_with(@user)
+    else
+    	redirect_to root_path
+    end
   end
   
   def update

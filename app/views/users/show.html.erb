@@ -4,6 +4,7 @@
 	<ul class="arguments full_list">
 		<%= render_threads(@arguments, {:show_children => false, :allow_reply => false}) %>
 	</ul>
+	<%= will_paginate @arguments %>
 <% else %>
 	<div class="notification">No arguments for this user yet.</div>
 <% end %>

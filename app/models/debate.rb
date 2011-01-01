@@ -1,4 +1,7 @@
 class Debate < ActiveRecord::Base
+  	cattr_reader :per_page
+  	@@per_page = 2
+  	
     validates :name, :presence => true,
                      :length => { :minimum => 5, :unless => Proc.new { |d| d.name.blank? } }
     

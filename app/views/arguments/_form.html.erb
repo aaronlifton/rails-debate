@@ -27,7 +27,8 @@ $("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
         <td>
           <div class="field sides">
             <% @debate.sides.each do |side| %>
-                <div class="side" onclick="select_side($(this))">
+            	<% id =  @parent.nil? ? "side_#{side.id}" : "side_#{@parent.id}_#{side.id}" %>
+                <div id="<%= id %>" class="side" onclick="select_side('<%= id %>')">
                     <%= f.radio_button :side_id, side.id %>
                     <%= label_tag "argument_side_id_#{side.id}", side.name %>
                 </div>
@@ -46,7 +47,9 @@ $("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
 		<% end %>
       </tr>
   </table>
-  <%= f.hidden_field :user_id %>
+  <% unless current_user.nil? %>
+  	<%= f.hidden_field :user_id, { :value => current_user.id } %>
+  <% end %>
   <%= f.hidden_field :parent_id %>
   <%= hidden_field_tag "debate_id", @debate.id %>
   <div class="actions">

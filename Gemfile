@@ -29,3 +29,4 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 # end
 
 gem 'clearance', '0.9.0.rc3'
+gem "will_paginate", "~> 3.0.pre2"

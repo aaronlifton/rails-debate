@@ -1,26 +1,19 @@
-<h1>Listing users</h1>
+<h1>Leaderboard</h1>
 
 <% if @users.size > 0 %>
   <table>
     <tr>
-      <th>ID</th>
       <th>Name</th>
+      <th>Points</th>
     </tr>
   
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.id %></td>
-      <td><%= user.name %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to user.name, user_path(user) %></td>
+      <td><%= user.points %></td>
     </tr>
   <% end %>
   </table>
 <% else %>
   <p>No users yet.</p>
 <% end %>
-
-<br />
-
-<%= link_to 'New User', new_user_path %>

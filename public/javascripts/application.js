@@ -43,9 +43,10 @@ function add_fields(link, association, content) {
 })(jQuery)
 
 function select_side(e) {
+	el = $("#" +e);
     $('.new_argument .side').removeClass('selected');
-    e.addClass('selected');
-    e.children("input[type=radio]").attr('checked',true);
+    el.addClass('selected');
+    $("#"+e+" > input[type=radio]").attr('checked',true);
 }
 
 var toggleLoading = function(e) {
@@ -55,4 +56,15 @@ var toggleLoading = function(e) {
 
 var cancelReply = function(i) {
 	$("#reply_"+i).children().remove();
+};
+
+var vote = function(i) {
+	$.post("/arguments/"+i+"/vote", function(data) {
+		data = JSON.parse(data);
+		if (data.success == true) {
+  			$("#score_"+i).html(data.score);
+  		} else {
+  			alert(data.error);
+  		}
+	});
 };

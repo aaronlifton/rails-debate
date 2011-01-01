@@ -1,8 +1,14 @@
-class Argument < ActiveRecord::Base  
+class Argument < ActiveRecord::Base
+  	cattr_reader :per_page
+  	@@per_page = 1
+  	
     validates :body, :presence => true,
                      :length => { :minimum => 50, :maximum => 2500 }
                      
     belongs_to :side
+    belongs_to :user
+    has_many :votes
+    
     validate :has_side
     
     acts_as_tree :order => "id"
@@ -20,5 +26,9 @@ class Argument < ActiveRecord::Base
     
     def markdownize_description
         #body = Markdown.new(body).to_html
+    end
+    
+    def score
+    	return votes.count
     end
 end

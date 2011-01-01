@@ -11,6 +11,8 @@
     <p>No debates yet.</p>
 <% end %>
 
+<%= will_paginate @debates %>
+
 <div class="options round_bottom">
 	<%= link_to 'New Debate', new_debate_path %>
 </div>

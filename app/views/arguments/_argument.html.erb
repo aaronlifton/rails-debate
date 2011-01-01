@@ -1,5 +1,5 @@
 <% content_tag_for(:li, argument) do %>
-    <div class="info"><a href="#">flubba</a> &#183; <%= time_ago_in_words(argument.created_at) %> ago</div>
+    <div class="info"><% unless current_user && !current_user.voted_for(argument.id) %><a href="<%= vote_argument_path(argument) %>" id="vote_<%= argument.id %>" onclick="javascript:vote(<%= argument.id %>);return false;">&#x25B2;</a> <% end %><% unless argument.user.nil? %><%= link_to argument.user.name, user_path(argument.user) %><% else %>Anonymous<% end %> &#183; <%= time_ago_in_words(argument.created_at) %> ago &#183; <span id="score_<%= argument.id %>"><%= argument.score %></span> points</div>
     <p><%= argument.body %></p>
     <div class="meta">
         posted for <%= argument.side.name %>

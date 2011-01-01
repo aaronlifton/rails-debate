@@ -11,6 +11,7 @@ Debatezone4::Application.routes.draw do |map|
     member do
         get :reply
         post :reply
+        post :vote
     end
   end
 

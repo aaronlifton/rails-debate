@@ -28,4 +28,13 @@ class User < ActiveRecord::Base
 	def sides
 	  arguments.map {|a| a.side}.uniq
 	end
+	
+	def points
+		arguments.map {|a| a.score}.inject {|sum, n| sum + n }
+	end
+	
+	def voted_for(id)
+		old = Vote.first(:conditions => {:argument_id => id, :user_id => self.id})
+		return old.nil?
+	end
 end

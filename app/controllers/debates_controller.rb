@@ -3,7 +3,8 @@ class DebatesController < ApplicationController
   respond_to :html
 
   def index
-    respond_with(@debates = Debate.all)
+ 	@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC'
+    respond_with(@debates)
   end
 
   def show
@@ -22,7 +23,11 @@ class DebatesController < ApplicationController
 
   def edit
     @debate = Debate.find(params[:id])
-    respond_with(@debate)
+    if @debate.user == current_user
+    	respond_with(@debate)
+    else
+    	redirect_to debate_path(@debate)
+    end
   end
 
   def create
@@ -37,9 +42,9 @@ class DebatesController < ApplicationController
     respond_with(@debate)
   end
 
-  def destroy
-    @debate = Debate.find(params[:id])
-    @debate.destroy
-    respond_with(@debate)
-  end
+  #def destroy
+  #  @debate = Debate.find(params[:id])
+  #  @debate.destroy
+  #  respond_with(@debate)
+  #end
 end
