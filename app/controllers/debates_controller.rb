@@ -16,9 +16,14 @@ class DebatesController < ApplicationController
   end
 
   def new
-    @debate = Debate.new
-    2.times { @debate.sides.build }
-    respond_with(@debate)
+  	unless current_user.nil?
+		@debate = Debate.new
+		2.times { @debate.sides.build }
+		respond_with(@debate)
+	else
+		flash[:error] = "You need to be logged in to create a debate."
+		redirect_to debates_path
+	end
   end
 
   def edit

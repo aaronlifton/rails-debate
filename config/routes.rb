@@ -22,6 +22,8 @@ Debatezone4::Application.routes.draw do |map|
   resource :session,
     :controller => "sessions",
     :only => [:create]
+    
+  match "sign_out" => "sessions#destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

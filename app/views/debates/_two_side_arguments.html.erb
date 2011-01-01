@@ -7,8 +7,8 @@
         <% end %>
     </tr>
     <tr>
-        <% sides.each do |side| %>
-            <td id="side_<%= side.id %>">
+        <% sides.each_with_index do |side, i| %>
+            <td id="side_<%= side.id %>" class="side_<%= i %>">
                 <% if side.parent_arguments.size > 0 %>
                     <ul class="arguments">
                         <%= render_threads(side.parent_arguments) %>

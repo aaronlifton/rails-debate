@@ -1,19 +1,27 @@
 <h1>Leaderboard</h1>
 
 <% if @users.size > 0 %>
-  <table>
+  <table id="leaderboard">
     <tr>
+      <th style="width:2em;">Rank</th>
       <th>Name</th>
       <th>Points</th>
     </tr>
   
-  <% @users.each do |user| %>
+  <% @users.each_with_index do |user, i| %>
     <tr>
+      <td><%= i+1 %></td>
       <td><%= link_to user.name, user_path(user) %></td>
-      <td><%= user.points %></td>
+      <td><%= user.points || 0 %></td>
     </tr>
   <% end %>
   </table>
 <% else %>
   <p>No users yet.</p>
 <% end %>
+<div class="options round_bottom">
+	<%= link_to "Back", root_path %>
+	<% if current_user.nil? %>
+		 | <%= link_to "Sign up", sign_up_path %>
+	<% end %>
+</div>

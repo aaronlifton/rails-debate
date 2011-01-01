@@ -42,7 +42,7 @@ h3 {
 	.flash {padding:0.5em;margin-bottom:0.5em;}
     #flash_notice {background:#E2F9E3;border:1px solid #9C9;color:#060;}
     #flash_success {background:#E2F9E3;border:1px solid #9C9;color:#060;}
-    #flash_failure {color:#B60040;background:#ffc7c7;border:1px solid #ff6161;}
+    #flash_failure, #flash_error {color:#B60040;background:#ffc7c7;border:1px solid #ff6161;}
     
     /* USER NAV */
     #user_nav {margin-top:0.5em;float:right;padding:0.5em;margin-right:5px;}
@@ -122,6 +122,7 @@ form {margin-left:1em;}
 .arguments {list-style-type:none;margin:0;padding:0;}
 .arguments .argument {margin:1em 0;}
 .arguments .arguments {margin-left:1em;}
+.side_1 {padding-right:2em;}
 
 #new_argument textarea {height:150px;}
 #new_argument .errors {margin:6px 0 0 0;}
@@ -146,3 +147,5 @@ form {margin-left:1em;}
 .notification .spacer {padding:0.5em;float:right;}
 
 /* USERS */
+#leaderboard {margin:0 1em 1em 1em;}
+.pagination {margin:1em;}
