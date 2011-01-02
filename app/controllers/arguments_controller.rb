@@ -61,4 +61,14 @@ class ArgumentsController < ApplicationController
   		redirect_to debate_path(@argument.debate)
   	end
   end
+  
+  def destroy
+  	if current_user != nil && current_user.name == "flubba"
+		@argument = Argument.find(params[:id])
+		@argument.destroy
+		respond_with(@argument)
+	else
+		redirect_to root_path
+	end
+  end
 end

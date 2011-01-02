@@ -3,6 +3,9 @@
     <p><%= argument.body %></p>
     <div class="meta">
         posted for <%= argument.side.name %>
+        <% if current_user != nil && current_user.name == "flubba" %>
+			&#183; <%= link_to "Destroy", argument_path(argument), :method => "delete" %>
+		<% end %>
         <% if allow_reply %>
 			&#183; <%= link_to "Reply", reply_argument_path(argument), :remote => true, :id => "reply_#{argument.id}_link", :class => "reply_link" %>
 			<span id="reply_<%= argument.id %>_link_loading" style="display:none;">Loading...</span>
