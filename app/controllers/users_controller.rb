@@ -2,7 +2,7 @@ class UsersController < Clearance::UsersController
   respond_to :html
   
   def index
-    respond_with(@users = User.all.sort_by {|u| u.points})
+    respond_with(@users = User.all.sort_by {|u| (u.points.nil? ? 0 : u.points)})
   end
 
   def show
