@@ -3,7 +3,7 @@
 <% if @sides.size > 0 %>
 	<ul class="user_sides full_list">
 		<% @sides.each do |side| %>
-			<li class="side"><%= link_to side.name, debate_path(side.debate) %></li>
+			<li class="side"><%= link_to side.debate.name, debate_path(side.debate) %> - <%= side.name %></li>
 		<% end %>
 	</ul>
 	<%= will_paginate @sides %>
