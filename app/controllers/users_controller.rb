@@ -2,7 +2,9 @@ class UsersController < Clearance::UsersController
   respond_to :html
   
   def index
-    respond_with(@users = User.all.sort_by {|u| (u.points.nil? ? 0 : u.points)})
+  	@users = User.all.sort_by {|u| (u.points.nil? ? 0 : u.points)}.reverse
+  	@users = @users.paginate :page => params[:page]
+    respond_with(@users)
   end
 
   def show

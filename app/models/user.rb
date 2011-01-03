@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  	cattr_reader :per_page
+  	@@per_page = 50
+  	
 	validates :name, :presence => true,
 			   		 :format => { :with =>  /^\w+$/i, :message => "can only contain letters, numbers, and underscores." },
 			   		 :length => { :maximum => 30 }
