@@ -28,6 +28,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts-as-taggable-on (2.0.6)
     arel (2.0.6)
     builder (2.1.2)
     clearance (0.9.1)
@@ -72,6 +73,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts-as-taggable-on
   clearance (= 0.9.1)
   rails (= 3.0.3)
   sqlite3-ruby

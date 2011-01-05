@@ -94,7 +94,8 @@ form {margin-left:1em;}
 #debates li h4 a {display:block;padding:0.5em;background:#eee;border-bottom:1px solid #ddd;}
 #debates li h4 a:hover {background:#ddd;border-color:#ccc;}
 
-.meta {margin:0 1em;font-size:13px;}
+.options .meta {float:right;margin:0 1em;font-size:13px;}
+.debate_options {float:left;}
 
 #new_debate h3 {margin-left:0;}
 #new_debate #sides {margin:1em 0;}
@@ -150,6 +151,15 @@ form {margin-left:1em;}
 
 /* USERS */
 #leaderboard {margin:0 1em 1em 1em;}
+
+
 .pagination {margin:1em;}
 
 #search_debates {float:right;margin-top:1em;}
+
+/* TAGS */
+.tags {list-style-type:none;background:#F4F4F4;padding:0.5em;margin:1em;color:#555;}
+.tags h2 {font-size:1.25em;margin-botom:0em;}
+.tags .tag {background:#E4E4E4;padding:0.5em;}
+.tags .tag {margin:0.5em;display:inline-block;}
+.tags .tag {font-weight:bold;}

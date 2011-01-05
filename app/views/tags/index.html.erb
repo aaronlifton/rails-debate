@@ -1,0 +1,13 @@
+<% content_for :title_suffix do %> - Tags<% end %>
+<h1>Tags</h1>
+<% if @tags.size > 0 %>
+    <ul id="tags" class="tags">
+        <% @tags.each do |tag| %>
+            <li class="tag"><%= link_to tag, tag_path(tag.name) %></li>
+        <% end %>
+    </ul>
+<% else %>
+    <p>No tags yet.</p>
+<% end %>
+
+<%= will_paginate @tags %>

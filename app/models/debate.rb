@@ -2,8 +2,11 @@ class Debate < ActiveRecord::Base
   	cattr_reader :per_page
   	@@per_page = 2
   	
+  	acts_as_taggable
+  	
     validates :name, :presence => true,
                      :length => { :minimum => 5, :unless => Proc.new { |d| d.name.blank? } }
+    validates :tag_list, :presence => true
     
     has_many :sides, :dependent => :destroy
     accepts_nested_attributes_for :sides, :allow_destroy => true#, :reject_if => proc { |side| side['name'].blank? }

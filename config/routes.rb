@@ -15,8 +15,10 @@ Debatezone4::Application.routes.draw do |map|
     end
   end
 
-  resources :debates
-
+  resources :debates 
+  resources :tags
+  match "tags/:tag" => "tags#show"
+  
   root :to => "home#index"
   
   resource :session,

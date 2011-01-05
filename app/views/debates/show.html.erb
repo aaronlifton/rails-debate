@@ -18,13 +18,27 @@ $(document).ready(function() {
 
 <h1><%= @debate.name %></h1>
 <p><%= @debate.description %></p>
-<div class="meta">
-	created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
-</div>
+
+<% if @debate.tags.size > 0 %>
+	<ul id="debate_tags" class="tags">
+	<h2>Tags</h2>
+	<% @debate.tags.each do |tag| %>
+		<li class="tag"><%= link_to tag, tag_path(tag.name) %></li>
+	<% end %>
+	</ul>
+<% end %>
+
+
 
 <div class="options">
-    <%= link_to 'Edit', edit_debate_path(@debate) %> |
-    <%= link_to 'Back', debates_path %>
+	<div class="debate_options">
+		<%= link_to 'Edit', edit_debate_path(@debate) %> |
+		<%= link_to 'Back', debates_path %>
+	</div>
+    <div class="meta">
+		created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
+	</div>
+	<div class="clear"></div>
 </div>
 
 <ul id="sides" class="sides">
