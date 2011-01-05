@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% for debate in @debates %>
+	  <url>
+		<loc>http://debate-zone.com/<%= debate_path(debate) %></loc>
+		<lastmod><%= debate.arguments.size > 0 ? debate.arguments.last.created_at.strftime("%Y-%m-%d") : debate.updated_at.strftime("%Y-%m-%d") %></lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	  </url>
+  <% end %>
+</urlset>

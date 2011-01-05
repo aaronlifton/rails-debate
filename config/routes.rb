@@ -24,6 +24,8 @@ Debatezone4::Application.routes.draw do |map|
     :only => [:create]
     
   match "sign_out" => "sessions#destroy"
+  match "sitemap" => "sitemap#index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

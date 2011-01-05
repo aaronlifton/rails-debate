@@ -15,7 +15,7 @@ class Debate < ActiveRecord::Base
         
     before_save :markdownize_description,
         :unless => Proc.new { |debate| debate.description.blank? }
-    
+	
     def arguments
       sides.map { |s| s.arguments }.flatten
     end
