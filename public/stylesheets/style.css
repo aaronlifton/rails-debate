@@ -36,6 +36,7 @@ h3 {
 	color:#fff;
 	margin:0;
 	padding:0.5em 0;
+	float:left;
 }
 
     /* FLASH */
@@ -150,3 +151,5 @@ form {margin-left:1em;}
 /* USERS */
 #leaderboard {margin:0 1em 1em 1em;}
 .pagination {margin:1em;}
+
+#search_debates {float:right;margin-top:1em;}

@@ -3,7 +3,11 @@ class DebatesController < ApplicationController
   respond_to :html
 
   def index
- 	@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC'
+  	unless params[:search].nil?
+  		@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC', :conditions => ['name LIKE ?', "%#{params[:search]}%"]
+  	else
+  		@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC'
+  	end
     respond_with(@debates)
   end
 

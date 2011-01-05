@@ -1,6 +1,13 @@
 <div id="intro">
     <div class="center">
         <h2>A new way to debate online.</h2>
+		<div id="search_debates">
+			<% form_tag debates_path, :method => 'get' do %>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil %>
+			<% end %>
+		</div>
+		<div class="clear"></div>
     </div>
 </div>
 
