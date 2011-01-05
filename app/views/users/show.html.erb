@@ -1,4 +1,4 @@
-<% content_for :title do %><%= title(@user.name) %><% end %>
+<% content_for :title_suffix do %> - <%= @user.name %><% end %>
 <%= render :partial => "top", :locals => {:user => @user} %>
 
 <% if @arguments.size > 0 %>
