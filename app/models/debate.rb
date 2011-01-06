@@ -19,12 +19,25 @@ class Debate < ActiveRecord::Base
     before_save :markdownize_description,
         :unless => Proc.new { |debate| debate.description.blank? }
 	
+	def related
+		related_debates = []
+		if tags.size > 0
+			tags.each do |tag|
+				related_debates += Debate.tagged_with(tag).order("created_at DESC").limit(2).reject {|d| d.id == self.id}
+			end
+			related = related_debates.uniq
+			return related.size > 0 ? related : nil
+		else
+			return nil
+		end
+	end
+	
     def arguments
       sides.map { |s| s.arguments }.flatten
     end
     
     def parent_arguments
-        arguments.where("parent_id IS NULL")
+        Argument.where("side_id IN (#{sides.map(&:id).join(',')}) AND parent_id IS NULL")
     end
     
     def has_enough_sides

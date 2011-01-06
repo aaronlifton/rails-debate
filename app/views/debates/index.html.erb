@@ -1,4 +1,4 @@
-<h1>Debates</h1>
+<h1><% unless params[:search].nil? %>Search for "<%= params[:search] %>"<% else %>Debates<% end %></h1>
 <% if @debates.size > 0 %>
     <ul id="debates">
         <% @debates.each do |debate| %>

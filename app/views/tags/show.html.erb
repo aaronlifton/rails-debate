@@ -1,6 +1,10 @@
 <% content_for :title_suffix do %> - <%= @tag %><% end %>
 <h1><%= @tag.capitalize %> debates</h1>
 
+<div id="tag_recommended_books">
+	<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=48&l=st1&mode=books&search=<%= @tag %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="728" height="90" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+</div>
+
 <% if @debates.size > 0 %>
 	<ul id="debates">
         <% @debates.each do |debate| %>

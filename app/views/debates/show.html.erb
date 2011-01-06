@@ -62,7 +62,7 @@ $(document).ready(function() {
 	</div>
 <% else %>
 	<div id="argue">
-   		<h2>New Argument</h2>
+   		<h2>Argue</h2>
 	    <%= render :partial => "arguments/form", :locals => { :argument => @argument, :debate => @debate } %>
 	</div>
 <% end %>
@@ -71,7 +71,7 @@ $(document).ready(function() {
 
 <% if @debate.sides.size > 2 %>
     <% if @debate.arguments.size > 0 %>
-        <ul class="arguments">
+        <ul id="multi_arguments" class="arguments">
             <%= render_threads(@debate.parent_arguments) %>
         </ul>
     <% else %>
@@ -79,4 +79,18 @@ $(document).ready(function() {
     <% end %>
 <% else %>
     <%= render :partial => "two_side_arguments", :locals => { :sides => @debate.sides } %>
+<% end %>
+
+<% if @related != nil %>
+<hr />
+<div id="related_debates">
+	<h3>Related Debates</h3>
+	<ul id="debates" class="debates">
+		<% @related.each do |r| %>
+			<li>
+				<h4><%= link_to r.name, debate_path(r) %></h4>
+			</li>
+		<% end %>
+	</ul>
+</div>
 <% end %>

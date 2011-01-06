@@ -14,6 +14,7 @@ class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
     @argument = Argument.new
+    @related = @debate.related
     respond_with(@debate) do |format|
         format.html { render :layout => "one_col" }
     end

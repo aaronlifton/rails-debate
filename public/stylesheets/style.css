@@ -6,13 +6,14 @@ body {
     font-size:15px;
     line-height:22px;
     color:#575757;
-    padding-bottom:1em;
 }
 
 a {
 	color:#0044CC;
 	text-decoration:none;
 }
+
+#content h2 {font-size:1.5em;padding:0 0.5em;}
 
 h3 {
 	font-family:HelveticaNeue-Light, 'Helvetica Neue Light', 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -113,6 +114,11 @@ form {margin-left:1em;}
 #argue h2 {font-size:1.5em;margin-bottom:0.5em;}
 #argue #new_argument {margin:0.5em;}
 
+#new_base_argument {margin:0;}
+#argue #argument_submit {font-size:2em;}
+#argue .sides {width:auto;}
+#new_argument_errors {margin:0 1em;}
+
 .new_argument {background:#E4E4E4;color:#555;}
 .new_argument table tr td {vertical-align:top;}
 .new_argument .side {margin:0.5em 0;border:2px solid #E9FBFF;cursor:pointer;}
@@ -121,14 +127,17 @@ form {margin-left:1em;}
 
 /* ARGUMENTS */
 #arguments {margin:1em;}
+#multi_arguments {margin:0 1em;}
 
 .arguments {list-style-type:none;margin:0;padding:0;}
 .arguments .argument {margin:1em 0;}
 .arguments .arguments {margin-left:1em;}
 .side_1 {padding-right:2em;}
 
-#new_argument textarea {height:150px;}
+#new_argument textarea {height:150px;width:290px;}
 #new_argument .errors {margin:6px 0 0 0;}
+
+#related_books {width:300px;}
 
 .argument .info {background:#eee;border-bottom:#ddd;padding:0.5em;margin-bottom:0.5em;font-size:13px;}
 .argument p {margin:0 0 0.5em 0 !important;}
@@ -159,7 +168,13 @@ form {margin-left:1em;}
 
 /* TAGS */
 .tags {list-style-type:none;background:#F4F4F4;padding:0.5em;margin:1em;color:#555;}
-.tags h2 {font-size:1.25em;margin-botom:0em;}
+.tags h2 {font-size:1.25em;margin:0.5em 0 !important;}
 .tags .tag {background:#E4E4E4;padding:0.5em;}
 .tags .tag {margin:0.5em;display:inline-block;}
 .tags .tag {font-weight:bold;}
+#tag_recommended_books {margin:1em;text-align:center;}
+
+#related_debates {margin:1em;}
+#related_debates h3 {margin-left:0;}
+
+#footer {margin:2em 0.5em;padding:0 0.5em;color:#575757;font-size:13px;}
