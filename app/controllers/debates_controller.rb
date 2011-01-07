@@ -3,12 +3,33 @@ class DebatesController < ApplicationController
   respond_to :html
 
   def index
-  	unless params[:search].nil?
-  		@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC', :conditions => ['name LIKE ?', "%#{params[:search]}%"]
+    unless params[:sort].nil?
+  		if params[:sort] == "arguments"
+  			@debates = Debate.all.sort_by {|d| d.argument_count}.reverse
+  		elsif params[:sort] == "hot"
+  			@debates = Debate.hot
+  		else
+  			if params[:reverse] == "true"
+  				@debates = Debate.order("created_at DESC")
+  			else
+  			  	@debates = Debate.order("created_at ASC")
+			end
+  		end
   	else
-  		@debates = Debate.paginate :page => params[:page], :order => 'created_at DESC'
+  		@debates = Debate.all
   	end
-    respond_with(@debates)
+  	@debates.reverse! if params[:reverse] == "true" && params[:sort] != "date"
+  	
+  	unless params[:search].nil?
+  		@debates = @debates.paginate :page => params[:page], :order => 'created_at DESC', :conditions => ['name LIKE ?', "%#{params[:search]}%"]
+  	else
+  		@debates = @debates.paginate :page => params[:page]
+  	end
+
+    @tags = Debate.tag_counts_on(:tags)[0..19]
+    respond_with(@debates) do |format|
+    	format.html { render :layout => "three_col" }
+    end
   end
 
   def show

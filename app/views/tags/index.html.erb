@@ -1,11 +1,11 @@
 <% content_for :title_suffix do %> - Tags<% end %>
 <h1>Tags</h1>
 <% if @tags.size > 0 %>
-    <ul id="tags" class="tags">
-        <% @tags.each do |tag| %>
-            <li class="tag"><%= link_to tag, tag_path(tag.name) %></li>
-        <% end %>
-    </ul>
+	<div class="tags">
+	  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>
+		<%= link_to tag.name, tag_path(tag.name), :class => css_class %>
+	  <% end %>
+	</div>
 <% else %>
     <p>No tags yet.</p>
 <% end %>

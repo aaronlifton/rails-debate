@@ -26,6 +26,7 @@ $("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
       <tr>
         <td>
           <div class="field sides">
+       		<h3>Choose a side</h3>
             <% @debate.sides.each do |side| %>
             	<% id =  @parent.nil? ? "side_#{side.id}" : "side_#{@parent.id}_#{side.id}" %>
                 <div id="<%= id %>" class="side" onclick="select_side('<%= id %>')">
@@ -37,14 +38,9 @@ $("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
         </td>
         <td>
           <div class="field">
-            <%= f.text_area :body %>
+            <%= f.text_area :body, :cols => 48, :rows => 10 %>
           </div>
         </td>
-		<% if @parent.nil? %>
-			<td id="related_books">
-				<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=12&l=st1&mode=books&search=<%= @debate.tags[0..1].map(&:name).join("%20") %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="300" height="250" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
-			</td>
-		<% end %>
       </tr>
       <% if @parent.nil? %>
       <tr>
@@ -58,7 +54,7 @@ $("#argument_<%= @parent.id %>_reply").bind("ajax:loading", function() {
   <%= f.hidden_field :parent_id %>
   <%= hidden_field_tag "debate_id", @debate.id %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit argument" %>
 	<% unless @parent.nil? %>
 		<span id="argument_<%= @parent.id %>_reply_loading" style="display:none;">Loading...</span>
 		<%= link_to_function "cancel", "cancelReply(#{@parent.id})" %>

@@ -15,40 +15,16 @@ $(document).ready(function() {
 });
 </script>
 <% end %>
-
+<div id="main" class="span-18">
 <h1><%= @debate.name %></h1>
-<p><%= @debate.description %></p>
+<p id="debate_description"><%= @debate.description %></p>
 
-<% if @debate.tags.size > 0 %>
-	<ul id="debate_tags" class="tags">
-	<h2>Tags</h2>
-	<% @debate.tags.each do |tag| %>
-		<li class="tag"><%= link_to tag, tag_path(tag.name) %></li>
-	<% end %>
-	</ul>
-<% end %>
-
-
-
-<div class="options">
-	<div class="debate_options">
-		<%= link_to 'Edit', edit_debate_path(@debate) %> |
-		<%= link_to 'Back', debates_path %>
-	</div>
-    <div class="meta">
-		created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
-	</div>
-	<div class="clear"></div>
+<div class="meta">
+		<%= link_to 'Edit', edit_debate_path(@debate) %>
+		<% if current_user != nil && @debate.user_id == current_user.id %>
+		&#183; created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
+		<% end %>
 </div>
-
-<ul id="sides" class="sides">
-    <h2>Sides</h2>
-    <% @debate.sides.each do |side| %>
-        <li class="side">
-            <h3><%= side.name %></h3>
-        </li>
-    <% end %>
-</ul>
 
 <% if current_user.nil? %>
 	<div class="notification">
@@ -62,12 +38,9 @@ $(document).ready(function() {
 	</div>
 <% else %>
 	<div id="argue">
-   		<h2>Argue</h2>
 	    <%= render :partial => "arguments/form", :locals => { :argument => @argument, :debate => @debate } %>
 	</div>
 <% end %>
-
-<h2>Arguments</h2>
 
 <% if @debate.sides.size > 2 %>
     <% if @debate.arguments.size > 0 %>
@@ -94,3 +67,25 @@ $(document).ready(function() {
 	</ul>
 </div>
 <% end %>
+</div>
+<div id="sidebar" class="span-5">
+	<% if @debate.tags.size > 0 %>
+		<h3>Tags</h3>
+		<ul id="debate_tags">
+		<% @debate.tags.each do |tag| %>
+			<li><%= link_to tag, tag_path(tag.name) %></li>
+		<% end %>
+		</ul>
+		
+		<h3>Sides</h3>
+		<ul id="sides">
+    	<% @debate.sides.each do |side| %>
+			<li><%= side.name %> &#183; <%= side.score %> points</li>
+    	<% end %>
+		</ul>
+		
+		<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=14&l=st1&mode=books&search=<%= @debate.tags[0..1].map(&:name).join("%20") %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+
+	<% end %>
+</div>
+<div class="clear"></div>

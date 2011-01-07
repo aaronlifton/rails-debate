@@ -19,6 +19,10 @@ class Debate < ActiveRecord::Base
     before_save :markdownize_description,
         :unless => Proc.new { |debate| debate.description.blank? }
 	
+	def to_param
+    	"#{id}-#{name.gsub(/[^a-z0-9]+/i, '-')}"
+  	end
+  	
 	def related
 		related_debates = []
 		if tags.size > 0
@@ -50,6 +54,10 @@ class Debate < ActiveRecord::Base
         Debate.all.sort_by { |d|
             (d.argument_count.to_f) / ((Time.now.to_i - Time.at(d.created_at.to_i).to_i).to_f / 86400.to_f)
         }.reverse
+    end
+    
+    def self.top
+    	Debate.all.sort_by {|d| d.argument_count}.reverse
     end
     
     def argument_count

@@ -1,18 +1,35 @@
+
+
+<% content_for :left do %>
+    <% if @tags.size > 0 %>
+		<ul id="tags_filter">
+			<li class="selected"><%= link_to "All Topics", root_path %></li>
+			<% @tags.each do |tag| %>
+			<li><%= link_to tag.name, tag_path(tag.name) %></li>
+			<% end %>
+		</ul>
+   	 <% end %>
+<% end %>
+
+<% content_for :right do %>
+    <div id="sidebar">
+   		<h3>Stats</h3>
+		<ul>
+			<li><%= @debates.count %> debates</li>
+		</ul>
+    </div>
+<% end %>
+
 <h1><% unless params[:search].nil? %>Search for "<%= params[:search] %>"<% else %>Debates<% end %></h1>
 <% if @debates.size > 0 %>
-    <ul id="debates">
-        <% @debates.each do |debate| %>
-            <li>
-                <h4><%= link_to debate.name, debate_path(debate) %></h4>
-            </li>
-        <% end %>
+	<%= render :partial => "shared/sort" %>
+	<ul id="debates" class="debates">
+    	<%= render :partial => "debate", :collection => @debates %>
     </ul>
+    <%= will_paginate @debates %>
 <% else %>
     <p>No debates yet.</p>
 <% end %>
-
-<%= will_paginate @debates %>
-
 <div class="options round_bottom">
 	<%= link_to 'New Debate', new_debate_path %>
 </div>

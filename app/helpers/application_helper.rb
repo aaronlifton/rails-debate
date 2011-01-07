@@ -20,6 +20,14 @@ module ApplicationHelper
     button_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
   
+  def selected(sort,reverse,sort1,reverse1)
+	if sort==sort1 || sort.nil? && sort1=="date"
+		return "selected"
+	else
+		return nil
+	end
+  end
+  
   def uberform(options={})
     { :nested => nil }.merge(options)
     unless options[:nested].nil?

@@ -31,3 +31,5 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'clearance', '0.9.1'
 gem "will_paginate", "~> 3.0.pre2"
 gem 'acts-as-taggable-on'
+gem 'devise' # Devise must be required before RailsAdmin
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'

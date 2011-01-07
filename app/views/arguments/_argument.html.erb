@@ -1,11 +1,8 @@
 <% content_tag_for(:li, argument) do %>
-    <div class="info"><% unless current_user && !current_user.voted_for(argument.id) %><a href="<%= vote_argument_path(argument) %>" id="vote_<%= argument.id %>" onclick="javascript:vote(<%= argument.id %>);return false;">&#x25B2;</a> <% end %><% unless argument.user.nil? %><%= link_to argument.user.name, user_path(argument.user) %><% else %>Anonymous<% end %> &#183; <%= time_ago_in_words(argument.created_at) %> ago &#183; <span id="score_<%= argument.id %>"><%= argument.score %></span> points</div>
+    <div class="info"><% unless current_user && !current_user.voted_for(argument.id) %><a href="<%= vote_argument_path(argument) %>" id="vote_<%= argument.id %>" onclick="javascript:vote(<%= argument.id %>);return false;" title="Vote for this argument">&#x25B2;</a> <% end %><% unless argument.user.nil? %><%= link_to argument.user.name, user_path(argument.user) %><% else %>Anonymous<% end %> &#183; <%= time_ago_in_words(argument.created_at) %> ago &#183; <span id="score_<%= argument.id %>"><%= argument.score %></span> points</div>
     <p><%= argument.body %></p>
     <div class="meta">
         posted for <%= argument.side.name %>
-        <% if current_user != nil && current_user.name == "flubba" %>
-			&#183; <%= link_to "Destroy", argument_path(argument), :method => "delete" %>
-		<% end %>
         <% if allow_reply %>
 			&#183; <%= link_to "Reply", reply_argument_path(argument), :remote => true, :id => "reply_#{argument.id}_link", :class => "reply_link" %>
 			<span id="reply_<%= argument.id %>_link_loading" style="display:none;">Loading...</span>

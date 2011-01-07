@@ -1,7 +1,12 @@
 <% content_for :left do %>
-    <div id="debate_about" class="explained round">
-		Pop culture. Disputes with friends. Politics. Sports. Music. Debate it all on DebateZone.
-	</div>
+    <% if @tags.size > 0 %>
+		<ul id="tags_filter">
+			<li class="selected"><%= link_to "All Topics", root_path %></li>
+			<% @tags.each do |tag| %>
+			<li><%= link_to tag.name, tag_path(tag.name) %></li>
+			<% end %>
+		</ul>
+   	 <% end %>
 <% end %>
 
 <% content_for :right do %>
@@ -9,21 +14,33 @@
         <h3>New to DebateZone?</h3>    
         DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
     </div>
+    <div id="sidebar">
+   		<h3>Top Debates</h3>
+		<ul id="top_debates" class="debates">
+			<% @top_debates.each do |debate| %>
+				<li>
+					<%= link_to debate.name, debate_path(debate) %>
+					<div class="meta"><%= debate.arguments.count %> arguments</div>
+				</li>
+			<% end %>
+		</ul>
+    </div>
 <% end %>
 
-<h3>Top Debates</h3>
 <% if @debates.size > 0 %>
-    <ul id="debates">
-        <% @debates.each do |debate| %>
-            <li>
-                <h4><%= link_to debate.name, debate_path(debate) %></h4>
-            </li>
-        <% end %>
+	<h2>Hot Debates</h2>
+    <ul id="hot_debates" class="debates">
+    	<%= render :partial => "debates/debate", :collection => @debates %>
+    </ul>
+    
+   	<h2>Latest Debates</h2>
+    <ul id="latest_debates" class="debates">
+    	<%= render :partial => "debates/debate", :collection => @latest_debates %>
     </ul>
 <% else %>
     <p>No debates yet.</p>
 <% end %>
 <div class="options round_bottom">
 	<%= link_to "View all debates", debates_path %>
-	| <%= link_to 'New Debate', new_debate_path %>
+	&#183;  <%= link_to 'New Debate', new_debate_path %>
 </div>

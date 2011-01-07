@@ -23,4 +23,9 @@ class Side < ActiveRecord::Base
         fields = ActiveSupport::OrderedHash.new
         fields['name'] = { :type => 'text_field', :destroy => true }
     end
+    
+    def score
+    	score = arguments.map(&:score).reduce(:+)
+    	return score == nil ? 0 : score
+    end
 end
