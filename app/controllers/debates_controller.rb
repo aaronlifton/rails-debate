@@ -26,7 +26,7 @@ class DebatesController < ApplicationController
   		@debates = @debates.paginate :page => params[:page]
   	end
 
-    @tags = Debate.tag_counts_on(:tags)[0..19]
+    @tags = Debate.tag_counts_on(:tags).sort_by {|t| t.count}.reverse[0..19]
     respond_with(@debates) do |format|
     	format.html { render :layout => "three_col" }
     end
