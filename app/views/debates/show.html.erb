@@ -84,6 +84,13 @@ $(document).ready(function() {
     	<% end %>
 		</ul>
 		
+		<h3>Share</h3>
+		<div class="share">
+			<iframe src="http://www.facebook.com/plugins/like.php?href=<%= debate_url(@debate) %>&amp;layout=standard&amp;show_faces=true&amp;width=270&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:30px;" allowTransparency="true"></iframe>
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="flubba">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		</div>
+		
+		<h3>Related Books</h3>
 		<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=14&l=st1&mode=books&search=<%= @debate.tags[0..1].map(&:name).join("%20") %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
 
 	<% end %>

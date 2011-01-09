@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110106202911) do
+ActiveRecord::Schema.define(:version => 20110109223447) do
 
   create_table "arguments", :force => true do |t|
     t.text      "body"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110106202911) do
     t.timestamp "created_at"
     t.timestamp "updated_at"
     t.integer   "parent_id"
+    t.integer   "votes_count", :default => 0
   end
 
   create_table "debates", :force => true do |t|
