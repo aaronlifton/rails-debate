@@ -1,7 +1,8 @@
-<li>
+<li onclick="javascript:window.location='<%= debate_path(debate) %>'">
 	<%= link_to debate.name, debate_path(debate), :class => "debate_title" %>
 	<div class="meta">
 		created by <%= link_to debate.user.name, user_path(debate.user.name) %>
 		&#183; <%= debate.arguments.count %> arguments
 	</div>
+	</a>
 </li>
