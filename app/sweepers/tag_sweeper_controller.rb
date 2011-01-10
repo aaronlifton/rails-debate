@@ -1,5 +1,5 @@
 class TagSweeper < ActionController::Caching::Sweeper
-  observe ActiveRecord::Base::Tag
+  observe Tag
  
   def after_create(tag)
           expire_cache_for(tag)
