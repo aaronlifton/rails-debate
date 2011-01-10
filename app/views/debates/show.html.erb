@@ -19,13 +19,6 @@ $(document).ready(function() {
 <h1><%= @debate.name %></h1>
 <p id="debate_description"><%= @debate.description %></p>
 
-<div class="meta">
-		<%= link_to 'Edit', edit_debate_path(@debate) %>
-		<% if current_user != nil && @debate.user_id == current_user.id %>
-		&#183; created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %>
-		<% end %>
-</div>
-
 <% if current_user.nil? %>
 	<div class="notification">
 		<div class="message">
@@ -69,11 +62,15 @@ $(document).ready(function() {
 <% end %>
 </div>
 <div id="sidebar" class="span-5">
+	<% if current_user != nil && @debate.user_id == current_user.id %>
+		<%= link_to 'Edit this debate', edit_debate_path(@debate) %>
+	<% end %>
 	<h3>Info</h3>
-	<ul id="sides">
+	<ul id="info">
+		<li>created <%= time_ago_in_words(@debate.created_at) %> ago by <%= link_to @debate.user.name, user_path(@debate.user) %></li>
 		<li><%= @debate.arguments.count %> arguments</li>
 		<% @debate.sides.each do |side| %>
-			<li><%= side.name %> &#183; <%= side.score %> points</li>
+			<li><%= side.name %><br /><%= side.score %> points</li>
 		<% end %>
 	</ul>
 	

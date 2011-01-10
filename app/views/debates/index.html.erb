@@ -3,7 +3,7 @@
 <% content_for :left do %>
     <% if @tags.size > 0 %>
 		<ul id="tags_filter">
-			<li class="selected"><%= link_to "All Topics", root_path %></li>
+			<li class="selected"><%= link_to "All Topics", debates_path %></li>
 			<% @tags.each do |tag| %>
 			<li><%= link_to tag.name, tag_path(tag.name) %></li>
 			<% end %>

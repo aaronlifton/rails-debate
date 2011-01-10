@@ -62,8 +62,9 @@ form {margin-left:1em;}
 .explained {font-size:13px;}
 
 /* RIGHT SIDEBAR */
-#what_is_debatezone {background:#DDF1A6;color:#4F830A;padding:1em;margin-bottom:1em;}
+#what_is_debatezone {background: #D9FFB2;color: #4C8700;padding:1em;margin-bottom:1em;}
 #what_is_debatezone h3 {color:#444;margin-bottom:0.5em;font-size:13px;}
+#what_is_debatezone a {margin-top:0.5em;display:block;}
 
 /* CONTENT */
 #content {-webkit-box-shadow: #999 0px 3px 4px;
@@ -84,11 +85,14 @@ border-top-right-radius: 5px 5px;padding:1em 0;}
 
 #content.span-24 {background:#EBEFF9;}
 
-#content h1{color:#111;font-weight:bold;font-size:20px;}
-#content h1,#content h2 {margin-left:5px;margin-right:5px;}
+#content h1{color:#111;font-weight:bold;font-size:20px;margin:0 5px 0.5em 5px;}
+#main h1{color:#111;font-weight:bold;font-size:20px;margin:0.5em;margin-top:0;}
+#content h2 {margin-left:5px;margin-right:5px;margin-top:0.5em;}
 #content p {margin-left:1em;}
 
-.options {background:#EBEFF9;color:#737373;padding:0.5em 1em;}
+h1.title {margin:0.5em !important;}
+
+.options {background:#f4f4f4;color:#737373;padding:0.5em 1em;}
 
 /* DEBATE */
 .debates {list-style-type:none;margin:0 0 13px 0;padding:0;}
@@ -187,5 +191,8 @@ border-top-right-radius: 5px 5px;padding:1em 0;}
 
 #top_debates li a {font-weight:bold;}
 
+.sort {margin:0 5px;border-bottom:1px solid #f4f4f4;}
 .selected {font-weight:bold;}
 .share {margin-bottom:2em;}
+
+ul#info {list-style-type:disc;margin-left:16px;}

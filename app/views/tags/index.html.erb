@@ -1,5 +1,5 @@
 <% content_for :title_suffix do %> - Tags<% end %>
-<h1>Tags</h1>
+<h1 class="title">Tags</h1>
 <% if @tags.size > 0 %>
 	<div class="tags">
 	  <% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>

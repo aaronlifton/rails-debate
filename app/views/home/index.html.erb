@@ -1,7 +1,7 @@
 <% content_for :left do %>
     <% if @tags.size > 0 %>
 		<ul id="tags_filter">
-			<li class="selected"><%= link_to "All Topics", root_path %></li>
+			<li><%= link_to "All Topics", debates_path %></li>
 			<% @tags.each do |tag| %>
 			<li><%= link_to tag.name, tag_path(tag.name) %></li>
 			<% end %>
@@ -13,6 +13,7 @@
     <div id="what_is_debatezone" class="explained round">
         <h3>New to DebateZone?</h3>    
         DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
+<% if current_user.nil? %><br /><%= link_to "Join now", sign_up_path %><% end %>
     </div>
     <div id="sidebar">
    		<h3>Top Debates</h3>
