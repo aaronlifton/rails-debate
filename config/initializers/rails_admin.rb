@@ -1,1 +1,0 @@
-RailsAdmin.authenticate_with {current_user != nil && current_user.id == 1}
