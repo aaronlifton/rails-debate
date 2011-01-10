@@ -1,5 +1,8 @@
 class TagsController < ApplicationController
  	respond_to :html
+ 	#caches_page :index
+ 	#caches_action :show
+  #cache_sweeper :tag_sweeper
 
 	def index
 		@tags = Debate.tag_counts_on(:tags).sort_by {|t| t.count}.reverse.paginate :page => params[:page], :per_page => 100

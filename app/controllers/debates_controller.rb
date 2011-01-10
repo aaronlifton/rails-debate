@@ -1,6 +1,9 @@
 class DebatesController < ApplicationController
   layout 'one_col'
   respond_to :html
+  #caches_page :index
+  #caches_action :show
+  #cache_sweeper :debate_sweeper
 
   def index
     unless params[:sort].nil?

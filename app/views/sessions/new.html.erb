@@ -1,6 +1,6 @@
 <h1>Sign in</h1>
 
-<%= form_for :session, :url => { :controller => "sessions", :action => "create" } do |f| %>
+<%= form_for :session, :url => { :controller => "sessions", :action => "create", :back => params[:back] } do |f| %>
 	<div class="field">
 		<%= f.label :name %>
 		<%= f.text_field :name %>

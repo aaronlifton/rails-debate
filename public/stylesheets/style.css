@@ -66,13 +66,29 @@ form {margin-left:1em;}
 #what_is_debatezone h3 {color:#444;margin-bottom:0.5em;font-size:13px;}
 
 /* CONTENT */
-#content {background:#fff;}
+#content {-webkit-box-shadow: #999 0px 3px 4px;
+background: white;
+border-bottom-left-radius: 5px 5px;
+border-bottom-right-radius: 5px 5px;
+border-top-left-radius: 5px 5px;
+border-top-right-radius: 5px 5px;
+}
 #content form {margin-bottom:1em;}
 
+#main {-webkit-box-shadow: #999 0px 3px 4px;
+background: white;
+border-bottom-left-radius: 5px 5px;
+border-bottom-right-radius: 5px 5px;
+border-top-left-radius: 5px 5px;
+border-top-right-radius: 5px 5px;padding:1em 0;}
+
+#content.span-24 {background:#EBEFF9;}
+
 #content h1{color:#111;font-weight:bold;font-size:20px;}
+#content h1,#content h2 {margin-left:5px;margin-right:5px;}
 #content p {margin-left:1em;}
 
-.options {background:#F4F4F4;color:#444;padding:0.5em 1em;}
+.options {background:#EBEFF9;color:#737373;padding:0.5em 1em;}
 
 /* DEBATE */
 .debates {list-style-type:none;margin:0 0 13px 0;padding:0;}
@@ -80,7 +96,8 @@ form {margin-left:1em;}
 .debates li .debate_title {font-size:16px;font-weight:bold;}
 .debates li .meta {}
 
-#content .debates li:hover {background:#f4f4f4;cursor:pointer;}
+#content .debates li {border-top:1px solid #e4e4e4;border-top-color:white;}
+#content .debates li:hover {background:#EBEFF9;border-color:#6B90DA;cursor:pointer;}
 
 #new_debate h3 {margin-left:0;}
 #new_debate #sides {margin:1em 0;}
@@ -116,7 +133,7 @@ form {margin-left:1em;}
 
 #related_books {width:300px;}
 
-.argument .info {background:#f4f4f4;border-bottom:#e4e4e4;padding:0.5em;margin-bottom:0.5em;}
+.argument .info {background:#f4f4f4;border-bottom:#e4e4e4;padding:0.5em;margin-bottom:0.5em;color: #737373;}
 .argument p {line-height:17px;margin:0 0 0.5em 0 !important;}
 .meta {color:#737373;line-height:1.2em;}
 .meta a {color:#5077BB;}
@@ -156,6 +173,7 @@ form {margin-left:1em;}
 
 #footer {margin:2em 0.5em;padding:0 0.5em;color:#575757;}
 
+#sidebar {padding:1em 0;}
 #sidebar h3 {font-weight:bold;margin: 0px 0px 0.36em;font-size:13px;}
 #sidebar ul {list-style-type:none;padding:0px 0px 0.75em 0;}
 #sidebar ul li {padding: 0px 0px 0.3em;}

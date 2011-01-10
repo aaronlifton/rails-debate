@@ -28,4 +28,8 @@ class Side < ActiveRecord::Base
     	score = arguments.map(&:score).reduce(:+)
     	return score == nil ? 0 : score
     end
+    
+    def users
+      arguments.map {|a| a.user}.uniq
+  	end
 end

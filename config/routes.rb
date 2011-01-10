@@ -1,6 +1,4 @@
 Debatezone4::Application.routes.draw do |map|
-  devise_for :users
-
   resources :users do
     member do
       get :arguments

@@ -8,7 +8,11 @@ class SessionsController < Clearance::SessionsController
     else
       sign_in(@user)
       flash_success_after_create
-      redirect_back_or(url_after_create)
+      unless params[:back].nil?
+        redirect_to (params[:back])
+      else
+        redirect_back_or(url_after_create)
+      end
     end
   end
   

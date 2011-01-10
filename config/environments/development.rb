@@ -1,3 +1,4 @@
+ActiveRecord::Base
 Debatezone4::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -12,8 +13,8 @@ Debatezone4::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_view.debug_rjs             = true
-  config.action_controller.perform_caching = false
+  config.action_controller.perform_caching = true
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.raise_delivery_errors = true  
 end

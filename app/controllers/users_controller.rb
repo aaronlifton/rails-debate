@@ -1,5 +1,6 @@
 class UsersController < Clearance::UsersController
   respond_to :html
+  #caches_action :show, :arguments, :sides, :debates
   
   def index
   	@users = User.all.sort_by {|u| (u.points.nil? ? 0 : u.points)}.reverse

@@ -69,6 +69,14 @@ $(document).ready(function() {
 <% end %>
 </div>
 <div id="sidebar" class="span-5">
+	<h3>Info</h3>
+	<ul id="sides">
+		<li><%= @debate.arguments.count %> arguments</li>
+		<% @debate.sides.each do |side| %>
+			<li><%= side.name %> &#183; <%= side.score %> points</li>
+		<% end %>
+	</ul>
+	
 	<% if @debate.tags.size > 0 %>
 		<h3>Tags</h3>
 		<ul id="debate_tags">
@@ -76,23 +84,16 @@ $(document).ready(function() {
 			<li><%= link_to tag, tag_path(tag.name) %></li>
 		<% end %>
 		</ul>
-		
-		<h3>Sides</h3>
-		<ul id="sides">
-    	<% @debate.sides.each do |side| %>
-			<li><%= side.name %> &#183; <%= side.score %> points</li>
-    	<% end %>
-		</ul>
+	<% end %>
 		
 		<h3>Share</h3>
 		<div class="share">
-			<iframe src="http://www.facebook.com/plugins/like.php?href=<%= debate_url(@debate) %>&amp;layout=standard&amp;show_faces=true&amp;width=270&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:270px; height:30px;" allowTransparency="true"></iframe>
+			<iframe src="http://www.facebook.com/plugins/like.php?href=<%= debate_url(@debate) %>&amp;layout=standard&amp;show_faces=true&amp;width=270&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=80" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:220px; height:30px;" allowTransparency="true"></iframe>
 			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="flubba">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 		</div>
 		
+		<% amazon = @debate.tags.size > 0 ? @debate.tags[0..1].map(&:name).join("%20") : "politics" %>
 		<h3>Related Books</h3>
-		<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=14&l=st1&mode=books&search=<%= @debate.tags[0..1].map(&:name).join("%20") %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
-
-	<% end %>
+		<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=14&l=st1&mode=books&search=<%= amazon %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
 </div>
 <div class="clear"></div>

@@ -1,5 +1,6 @@
 class SidesController < ApplicationController
   respond_to :html
+  #cache_sweeper :side_sweeper
 
   def index
     respond_with(@sides = Side.all)
