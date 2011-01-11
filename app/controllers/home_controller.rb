@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   respond_to :html
-  layout 'three_col'
+  layout 'three_col', :except => [:advertise]
   #caches_page :advertise
 
   def index

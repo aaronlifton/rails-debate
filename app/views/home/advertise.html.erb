@@ -1,0 +1,21 @@
+<% content_for :right do %>
+    <div id="what_is_debatezone" class="explained round">
+        <h3>New to DebateZone?</h3>    
+        DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
+	</div>
+	
+	<div id="sidebar">
+   		<h3>Top Debates</h3>
+		<ul id="top_debates" class="debates">
+			<% @top_debates.each do |debate| %>
+				<li>
+					<%= link_to debate.name, debate_path(debate) %>
+					<div class="meta"><%= debate.arguments.count %> arguments</div>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
+
+<h1 class="title">Advertise on DebateZone</h1>
+<p>Want our users to see your ad? Contact us at <a href="mailto:advertise@debate-zone.com">advertise@debate-zone.com</a></p>
