@@ -63,7 +63,7 @@ $(document).ready(function() {
 </div>
 <div id="sidebar" class="span-5">
 	<% if current_user != nil && @debate.user_id == current_user.id %>
-		<%= link_to 'Edit this debate', edit_debate_path(@debate) %>
+		<%= link_to 'Edit this debate', edit_debate_path(@debate) %><br />
 	<% end %>
 	<h3>Info</h3>
 	<ul id="info">
@@ -92,5 +92,17 @@ $(document).ready(function() {
 		<% amazon = @debate.tags.size > 0 ? @debate.tags[0..1].map(&:name).join("%20") : "politics" %>
 		<h3>Related Books</h3>
 		<iframe src="http://rcm.amazon.com/e/cm?t=debat-20&o=1&p=14&l=st1&mode=books&search=<%= amazon %>&fc1=000000&lt1=&lc1=3366FF&bg1=FFFFFF&f=ifr" marginwidth="0" marginheight="0" width="160" height="600" border="0" frameborder="0" style="border:none;" scrolling="no"></iframe>
+		
+		<script type="text/javascript"><!--
+		google_ad_client = "ca-pub-1634731507150308";
+		/* right square on debate#show */
+		google_ad_slot = "2769831088";
+		google_ad_width = 250;
+		google_ad_height = 250;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
 </div>
 <div class="clear"></div>

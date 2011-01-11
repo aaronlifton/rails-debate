@@ -15,6 +15,17 @@
         DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
 <% if current_user.nil? %><br /><%= link_to "Join now", sign_up_path %><% end %>
     </div>
+	<form action="http://www.google.com/cse" id="cse-search-box">
+	  <div>
+	    <input type="hidden" name="cx" value="partner-pub-1634731507150308:7761300117" />
+	    <input type="hidden" name="ie" value="UTF-8" />
+	    <input type="text" name="q" size="55" />
+	    <input type="submit" name="sa" value="Search" />
+	  </div>
+	</form>
+
+	<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
+
     <div id="sidebar">
    		<h3>Top Debates</h3>
 		<ul id="top_debates" class="debates">

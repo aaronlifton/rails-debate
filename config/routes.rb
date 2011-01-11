@@ -27,7 +27,7 @@ Debatezone4::Application.routes.draw do |map|
     
   match "sign_out" => "sessions#destroy"
   match "sitemap" => "sitemap#index"
-
+  match "advertise" => "home#advertise"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

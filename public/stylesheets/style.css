@@ -129,6 +129,7 @@ h1.title {margin:0.5em !important;}
 /* ARGUMENTS */
 #arguments {margin:0;}
 #multi_arguments {margin:0 1em;}
+#user_arguments {margin:0 1em;}
 
 .arguments {list-style-type:none;margin:0;padding:0;}
 .arguments .argument {margin:1em 0;}
