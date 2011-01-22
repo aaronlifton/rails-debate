@@ -24,9 +24,9 @@ $(document).ready(function() {
 		<div class="message">
 			You must be signed in to vote.
 		</div>
-		<%= link_to image_tag("sign_up.png"), sign_up_path, :class => "button" %>
+		<%= link_to "Sign up", sign_up_path, :class => "button large" %>
 		<div class="spacer"></div>
-		<%= link_to image_tag("sign_in.png"), sign_in_path, :class => "button" %>
+		<%= link_to "Sign in", sign_in_path, :class => "button large" %>
 		<div class="clear"></div>
 	</div>
 <% else %>

@@ -13,7 +13,9 @@
     <div id="what_is_debatezone" class="explained round">
         <h3>New to DebateZone?</h3>    
         DebateZone is a rich community of debaters. Share your opinion on hot topics with the world. Refute other people's arguments. Get feedback on your viewpoints.
-<% if current_user.nil? %><br /><%= link_to "Join now", sign_up_path %><% end %>
+		<% if current_user.nil? %><br />
+			<%= link_to "Sign Up Now", sign_up_path, :class => "button large sign_up" %>
+		<% end %>
     </div>
 	<form action="http://www.google.com/cse" id="cse-search-box">
 	  <div>
@@ -51,7 +53,7 @@
 <% end %>
 
 <% if @debates.size > 0 %>
-	<h2>Hot Debates</h2>
+	<h2 class="title">Hot Debates</h2>
     <ul id="hot_debates" class="debates">
     	<%= render :partial => "debates/debate", :collection => @debates %>
     </ul>
