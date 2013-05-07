@@ -1,9 +1,8 @@
 rails-debate
 ============
 
-User-driven debate site built with Ruby on Rails and jQuery. Users can create and reply to arguments and join sides. Easily deployed on Heroku after resolving gem dependencies. 
+User-driven debate site built with Ruby on Rails and jQuery. Users can create and reply to arguments and join sides. Deployable on Heroku after resolving gem dependencies. 
 
->adversus solem ne loquitor  
 
 Required gems:  
 * 'rails', '3.0.3'  
